@@ -25,8 +25,13 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+      public function down(): void
     {
-        //
+        Schema::table('author_book', function (Blueprint $table) {
+            $table->dropForeign(['book_id']); // Drop the foreign key constraint
+            $table->dropForeign(['author_id']); // Drop the foreign key constraint
+        });
+
+        Schema::dropIfExists('author_book');
     }
 };

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,6 +21,7 @@ class BookFactory extends Factory
             'title'=>fake()->title(),
             'description'=>fake()->text(),
             'price'=>fake()->randomFloat(8,0,99.99),
+            'category_id'=>Category::factory()
         ];
     }
 }
